@@ -101,12 +101,14 @@ const AddToy = () => {
               <label className="label">
                 <span className="label-text">Toy Sub Category</span>
               </label>
-              <input
-                type="text"
-                placeholder="Sub Category"
-                className="input input-bordered"
-                name="subcategory"
-              />
+              <select className="select w-full select-info">
+                <option disabled selected>
+                  Choose From the Subcategories
+                </option>
+                <option>Princess Dolls</option>
+                <option>Adventure Dolls</option>
+                <option>Classic Disney Dolls</option>
+              </select>
             </div>
             <div className="form-control">
               <label className="label">
@@ -124,7 +126,7 @@ const AddToy = () => {
                 <span className="label-text">Rating</span>
               </label>
               <input
-                type="number"
+                type="text"
                 placeholder="Rating"
                 className="input input-bordered"
                 name="rating"
@@ -157,7 +159,7 @@ const AddToy = () => {
           <input
             type="submit"
             className=" btn btn-success btn-block my-8 text-white font-bold"
-            value="Confirm Order"
+            value="Add Your Toy"
           />
         </form>
 

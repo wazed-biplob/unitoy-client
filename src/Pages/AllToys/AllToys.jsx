@@ -40,12 +40,12 @@ const AllToys = () => {
           <tfoot>
             <tr>
               <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>company</th>
-              <th>location</th>
-              <th>Last Login</th>
-              <th>Favorite Color</th>
+              <th>Seller</th>
+              <th>Toy Name</th>
+              <th>Sub Category</th>
+              <th>Price ($)</th>
+              <th>Available Quantity</th>
+              <th>View Details</th>
             </tr>
           </tfoot>
         </table>
