@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({ t }) => {
-  const { toyName, toyPictureURL, price, rating } = t;
+  const { _id, toyName, toyPictureURL, price, rating } = t;
   return (
     <>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -22,7 +23,11 @@ const Card = ({ t }) => {
             <p>Rating: {rating}</p>
           </div>
         </div>
-        <button className="btn btn-outline btn-secondary">View Details</button>
+        <Link to={`/singletoy/${_id}`}>
+          <button className="btn btn-outline btn-secondary mb-4">
+            View Details
+          </button>
+        </Link>
       </div>
     </>
   );

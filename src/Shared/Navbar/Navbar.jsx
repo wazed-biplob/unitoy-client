@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import logo from "../../../src/assets/logo.jpg";
 import "./Navbar.css";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <div style={{ marginBottom: "0px" }} className="navbar bg-base-100">
@@ -62,19 +66,45 @@ const Navbar = () => {
             <li>
               <a>All Toys</a>
             </li>
-            <li>
-              <a>My toys</a>
-            </li>
-            <li>
-              <a>Add A Toy</a>
-            </li>
+
+            {user && (
+              <>
+                <li>
+                  <a>My toys</a>
+                </li>
+                <li>
+                  <a>Add A Toy</a>
+                </li>
+              </>
+            )}
+
             <li>
               <a>Blog</a>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          {user && (
+            <>
+              <a
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user.displayName}
+              >
+                <img
+                  className="profile-picture"
+                  style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+                  src={user.photoURL}
+                  alt={user.displayName}
+                />
+              </a>
+              <Tooltip style={{ zIndex: "99" }} id="my-tooltip" />
+              {user ? (
+                <button className="btn btn-outline mx-2">Log out</button>
+              ) : (
+                <button className="btn btn-outline">Log in</button>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>
