@@ -1,6 +1,10 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
+  const toyData = useLoaderData();
+  const { _id, sellerName, toyName, toySubCategory, price, quantity } = toyData;
+
   return (
     <>
       <div className="overflow-x-auto">
@@ -13,19 +17,25 @@ const AllToys = () => {
               <th>Sub Category</th>
               <th>Price ($)</th>
               <th>Available Quantity</th>
-              <th>i</th>
+              <th>View Details</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Littel, Schaden and Vandervort</td>
-              <td>Canada</td>
-              <td>12/16/2020</td>
-              <td>Blue</td>
-            </tr>
+            {toyData.map((toy, i) => (
+              <>
+                <tr key={toy._id}>
+                  <th>{i}</th>
+                  <td>{toy.sellerName}</td>
+                  <td>{toy.toyName}</td>
+                  <td>{toy.toySubCategory}</td>
+                  <td>{toy.price}</td>
+                  <td>{toy.quantity}</td>
+                  <td>
+                    <button className="btn btn-xs">Details</button>
+                  </td>
+                </tr>
+              </>
+            ))}
           </tbody>
           <tfoot>
             <tr>
