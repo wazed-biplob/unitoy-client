@@ -1,11 +1,11 @@
 import logo from "../../../src/assets/logo.jpg";
-
+import "./Navbar.css";
 const Navbar = () => {
   return (
     <div>
       <div style={{ marginBottom: "0px" }} className="navbar bg-base-100">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown z-10">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,21 +24,27 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className=" menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
-              </li>
-              <li tabIndex={0}>
-                <a className="justify-between">Parent</a>
+                <a>Home</a>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>All Toys</a>
+              </li>
+              <li>
+                <a>My Toys</a>
+              </li>
+              <li>
+                <a>Add A Toy</a>
+              </li>
+              <li>
+                <a>Blog</a>
               </li>
             </ul>
           </div>
           <div className="flex items-center gap-4">
-            <a>
+            <a style={{ width: "80px", height: "80px", borderRadius: "50%" }}>
               <img
                 style={{ width: "80px", height: "80px", borderRadius: "50%" }}
                 src={logo}
@@ -51,13 +57,19 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <a>Parent</a>
+              <a>Home</a>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>All Toys</a>
+            </li>
+            <li>
+              <a>My toys</a>
+            </li>
+            <li>
+              <a>Add A Toy</a>
+            </li>
+            <li>
+              <a>Blog</a>
             </li>
           </ul>
         </div>
