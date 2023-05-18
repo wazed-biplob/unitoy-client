@@ -58,23 +58,26 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-4">
-            <a style={{ width: "80px", height: "80px", borderRadius: "50%" }}>
+            <Link
+              to="/"
+              style={{ width: "80px", height: "80px", borderRadius: "50%" }}
+            >
               <img
                 style={{ width: "80px", height: "80px", borderRadius: "50%" }}
                 src={logo}
                 alt="logo"
               />
-            </a>
-            <h1 className="text-4xl font-bold text-amber-300">UniToy</h1>
+            </Link>
+            <h1 className="text-4xl font-bold text-lime-300">UniToy</h1>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu-container menu menu-horizontal px-1">
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a>All Toys</a>
+              <Link to="/alltoys">All Toys</Link>
             </li>
 
             {user && (
@@ -83,7 +86,7 @@ const Navbar = () => {
                   <a>My toys</a>
                 </li>
                 <li>
-                  <a>Add A Toy</a>
+                  <Link to="/addtoy">Add A Toy</Link>
                 </li>
               </>
             )}

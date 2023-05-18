@@ -47,7 +47,7 @@ const Login = () => {
           }}
           className="hero-content flex-col lg:flex-row-reverse"
         >
-          <div className="card flex-shrink-0 bg-opacity-40 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 bg-opacity-70 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
               <form onSubmit={handleSignIn}>
                 <div className="form-control">
@@ -102,7 +102,7 @@ const Login = () => {
               </span>
               <button
                 onClick={handleSignInWithGoogle}
-                className="btn glass text-white"
+                className="btn text-white"
               >
                 Sign In with Google
               </button>
