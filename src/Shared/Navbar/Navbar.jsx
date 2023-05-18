@@ -1,10 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import logo from "../../../src/assets/logo.jpg";
 import "./Navbar.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Tooltip } from "react-tooltip";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then((r) => console.log(""))
+      .catch((e) => console.log(e));
+    navigate("/");
+  };
   return (
     <div>
       <div style={{ marginBottom: "0px" }} className="navbar bg-base-100">
@@ -61,7 +71,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a>All Toys</a>
@@ -84,7 +94,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {user && (
+          {user ? (
             <>
               <a
                 data-tooltip-id="my-tooltip"
@@ -98,12 +108,14 @@ const Navbar = () => {
                 />
               </a>
               <Tooltip style={{ zIndex: "99" }} id="my-tooltip" />
-              {user ? (
-                <button className="btn btn-outline mx-2">Log out</button>
-              ) : (
-                <button className="btn btn-outline">Log in</button>
-              )}
+              <button onClick={handleLogOut} className="btn btn-outline mx-2">
+                Log out
+              </button>{" "}
             </>
+          ) : (
+            <Link to={"/login"}>
+              <button className="btn btn-outline">Log in</button>
+            </Link>
           )}
         </div>
       </div>

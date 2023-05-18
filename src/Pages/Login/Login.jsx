@@ -9,8 +9,11 @@ const Login = () => {
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   const handleSignInWithGoogle = () => {
-    signInWithGoogle
-      .then((r) => navigate(from, { replace: true }))
+    signInWithGoogle()
+      .then((r) => {
+        console.log(r.user);
+        navigate(from, { replace: true });
+      })
       .catch((e) => setError(e.message));
   };
   const handleSignIn = (e) => {
