@@ -1,23 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
-  const toyData = useLoaderData();
+  const [toyData, setToyData] = useState([]);
+  const [limit, setLimit] = useState(2);
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/toydata?limit=${limit}`)
+      .then((r) => r.json())
+      .then((d) => {
+        setToyData(d);
+      });
+  }, [limit]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchString = e.target.search.value;
+    const findQueryURL = `http://localhost:5000/toydata?search=${searchString}`;
+    fetch(findQueryURL, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((r) => r.json())
+      .then((d) => {
+        console.log(d);
+      });
+  };
   return (
     <>
       <div className="flex items-center gap-4">
-        <div className="form-control my-4">
-          <input
-            type="text"
-            placeholder="search a to by name"
-            className="input input-bordered"
-          />
-        </div>
+        <form onSubmit={handleSearch} className="flex items-center gap-4">
+          <div className="form-control my-4">
+            <input
+              type="text"
+              placeholder="search a Toy by name"
+              className="input input-bordered"
+              name="search"
+            />
+          </div>
+          <button type="submit" className="btn">
+            Search
+          </button>
+        </form>
         <div>
-          <select>
-            <option>20</option>
-          </select>
+          <button onClick={() => setLimit(1000)} className="btn btn-warning">
+            Load All
+          </button>
         </div>
       </div>
       <div className="overflow-x-auto">
