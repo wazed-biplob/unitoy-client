@@ -1,12 +1,25 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   const toyData = useLoaderData();
-  const { _id, sellerName, toyName, toySubCategory, price, quantity } = toyData;
 
   return (
     <>
+      <div className="flex items-center gap-4">
+        <div className="form-control my-4">
+          <input
+            type="text"
+            placeholder="search a to by name"
+            className="input input-bordered"
+          />
+        </div>
+        <div>
+          <select>
+            <option>20</option>
+          </select>
+        </div>
+      </div>
       <div className="overflow-x-auto">
         <table className="table table-compact w-full">
           <thead>
@@ -31,7 +44,10 @@ const AllToys = () => {
                   <td>{toy.price}</td>
                   <td>{toy.quantity}</td>
                   <td>
-                    <button className="btn btn-xs">Details</button>
+                    <Link to={`/singletoy/${toy._id}`}>
+                      {" "}
+                      <button className="btn btn-xs">Details</button>
+                    </Link>
                   </td>
                 </tr>
               </>

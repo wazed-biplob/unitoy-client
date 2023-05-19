@@ -1,9 +1,24 @@
 import React, { useContext, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
-const AddToy = () => {
+const UpdateToy = () => {
+  const toyData = useLoaderData();
   const { user } = useContext(AuthContext);
   const [value, setValue] = useState("Princess Dolls");
+  const {
+    _id,
+    toyName,
+    toyPictureURL,
+    price,
+    rating,
+    quantity,
+    sellerEmail,
+    sellerName,
+    toyDescription,
+    toySubCategory,
+  } = toyData;
+
   const handleAddToy = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,7 +26,7 @@ const AddToy = () => {
     const toyName = form.toyname.value;
     const sellerName = form.name.value;
     const email = form.email.value;
-
+    const subCategory = value;
     const toyPrice = form.price.value;
     const rating = form.rating.value;
     const quantity = form.quantity.value;
@@ -21,16 +36,16 @@ const AddToy = () => {
       price: toyPrice,
       quantity: quantity,
       rating: rating,
-      sellerEmail: email,
+      sellerEmail: sellerEmail,
       sellerName: sellerName,
       toyDescription: description,
       toyPictureURL: pictureURL,
-      toySubCategory: value,
+      toySubCategory: subCategory,
     };
     console.log(toyInfo);
 
-    fetch("http://localhost:5000/toydata", {
-      method: "POST",
+    fetch(`http://localhost:5000/singletoy/${_id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -38,8 +53,8 @@ const AddToy = () => {
     })
       .then((r) => r.json())
       .then((d) => {
-        if (d.insertedId) {
-          alert("Toy Has Been Added Successfully.");
+        if (d.modifiedCount > 0) {
+          alert("Toy Has Been Updated Successfully.");
         }
       });
   };
@@ -47,7 +62,7 @@ const AddToy = () => {
     <>
       {" "}
       <div>
-        <h1 className="text-center font-extrabold">Add a Toy</h1>
+        <h1 className="text-center font-extrabold">Update Toy</h1>
 
         <form onSubmit={handleAddToy} className="p-8">
           <div className="grid grid-cols-3 gap-4">
@@ -60,6 +75,7 @@ const AddToy = () => {
                 placeholder="Picture URL"
                 className="input input-bordered"
                 name="pictureURLToy"
+                defaultValue={toyPictureURL}
               />
             </div>
             <div className="form-control">
@@ -71,6 +87,7 @@ const AddToy = () => {
                 placeholder="Toy Name"
                 className="input input-bordered"
                 name="toyname"
+                defaultValue={toyName}
               />
             </div>
 
@@ -83,6 +100,7 @@ const AddToy = () => {
                 placeholder="Full Name"
                 className="input input-bordered"
                 name="name"
+                defaultValue={sellerName}
               />
             </div>
             <div className="form-control">
@@ -125,6 +143,7 @@ const AddToy = () => {
                 placeholder="Price"
                 className="input input-bordered"
                 name="price"
+                defaultValue={price}
               />
             </div>
             <div className="form-control">
@@ -136,6 +155,7 @@ const AddToy = () => {
                 placeholder="Rating"
                 className="input input-bordered"
                 name="rating"
+                defaultValue={rating}
               />
             </div>
             <div className="form-control">
@@ -147,6 +167,7 @@ const AddToy = () => {
                 placeholder="Quantity"
                 className="input input-bordered"
                 name="quantity"
+                defaultValue={quantity}
               />
             </div>
             <div className="form-control">
@@ -158,6 +179,7 @@ const AddToy = () => {
                 placeholder="Description"
                 className="input input-bordered"
                 name="description"
+                defaultValue={toyDescription}
               />
             </div>
           </div>
@@ -175,4 +197,4 @@ const AddToy = () => {
   );
 };
 
-export default AddToy;
+export default UpdateToy;
