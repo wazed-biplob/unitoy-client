@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useTitle from "../Hooks/useTitle";
 
 const Login = () => {
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
+  useTitle("Log in");
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -42,7 +44,7 @@ const Login = () => {
       <div className="hero min-h-screen bg-gradient-to-r">
         <div
           style={{
-            backgroundImage: `url('https://i.ibb.co/ZWC0YKq/Moana.jpg')`,
+            backgroundImage: `url('https://i.ibb.co/QQhH4XT/banner.jpg')`,
             backgroundSize: "cover",
             width: "90%",
           }}

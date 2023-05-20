@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../Hooks/useTitle";
 
 const AllToys = () => {
   const [toyData, setToyData] = useState([]);
   const [limit, setLimit] = useState(20);
-
+  useTitle("All Toys");
   useEffect(() => {
     fetch(`http://localhost:5000/toydata?limit=${limit}`)
       .then((r) => r.json())
@@ -45,7 +46,7 @@ const AllToys = () => {
           </button>
         </form>
         <div>
-          <button onClick={() => setLimit(1000)} className="btn btn-warning">
+          <button onClick={() => setLimit(1000)} className="btn btn-outline">
             Load All
           </button>
         </div>

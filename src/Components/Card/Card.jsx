@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { FaRegStar, FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 const Card = ({ t }) => {
   const { _id, toyName, toyPictureURL, price, rating } = t;
   return (
@@ -14,13 +15,21 @@ const Card = ({ t }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">
+          <h2 className="card-title mx-auto">
             {toyName}
             <div className="badge badge-secondary">Dolls</div>
           </h2>
           <p>$ {price}</p>
-          <div className="card-actions justify-end">
-            <p>Rating: {rating}</p>
+          <div className="">
+            <Rating
+              style={{ fontSize: "20px", color: "lightsalmon" }}
+              readonly
+              placeholderRating={Math.round(rating)}
+              emptySymbol={<FaRegStar />}
+              placeholderSymbol={<FaStar />}
+              fullSymbol={<FaStar />}
+            />{" "}
+            <p>Rating : {rating}</p>
           </div>
         </div>
         <Link to={`/singletoy/${_id}`}>

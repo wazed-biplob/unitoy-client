@@ -28,7 +28,7 @@ const ShopByCategory = () => {
         data-aos-duration="2"
         className="mt-8 flex justify-center"
       >
-        <h1 className="bg-lime-300 pt-2 pb-3 px-4 text-center text-4xl font-bold text-white rounded-xl">
+        <h1 className="bg-gray-300 pt-2 pb-3 px-4 text-center text-4xl font-bold text-white rounded-xl">
           Shop By Category
         </h1>
       </div>
@@ -41,7 +41,7 @@ const ShopByCategory = () => {
           </TabList>
 
           <TabPanel>
-            <div className="flex justify-center gap-4">
+            <div className="grid grid-cols-3 gap-4 justify-items-center">
               {toyData
                 .filter((toy) => toy.toySubCategory === "Princess Dolls")
                 .map((t, i) => (
@@ -50,7 +50,7 @@ const ShopByCategory = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="flex justify-center gap-4">
+            <div className="grid grid-cols-3 gap-4 justify-items-center">
               {toyData
                 .filter((toy) => toy.toySubCategory === "Adventure Dolls")
                 .map((t, i) => (
@@ -59,7 +59,7 @@ const ShopByCategory = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="flex justify-center gap-4">
+            <div className="grid grid-cols-3 gap-4 justify-items-center">
               {toyData
                 .filter((toy) => toy.toySubCategory === "Classic Disney Dolls")
                 .map((t, i) => (

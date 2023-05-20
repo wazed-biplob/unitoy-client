@@ -1,4 +1,3 @@
-import logo from "../../../src/assets/logo.jpg";
 const Footer = () => {
   return (
     <>
@@ -52,7 +51,7 @@ const Footer = () => {
         <div className="items-center grid-flow-col">
           <img
             style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-            src={logo}
+            src="https://i.ibb.co/9bJYFqJ/logo.png"
             alt="logo"
           />
 

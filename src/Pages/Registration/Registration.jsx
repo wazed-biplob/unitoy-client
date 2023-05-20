@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { getAuth, updateProfile } from "firebase/auth";
 import app from "../../Firebase/firebase.config";
+import useTitle from "../Hooks/useTitle";
 const auth = getAuth(app);
 const Registration = () => {
   const { registerUser, logOut } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  useTitle("Registration");
   const navigate = useNavigate();
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -51,7 +53,7 @@ const Registration = () => {
       <div className="hero min-h-screen ">
         <div
           style={{
-            backgroundImage: `url('https://i.ibb.co/ZWC0YKq/Moana.jpg')`,
+            backgroundImage: `url('https://i.ibb.co/QQhH4XT/banner.jpg')`,
             backgroundSize: "cover",
             width: "90%",
           }}

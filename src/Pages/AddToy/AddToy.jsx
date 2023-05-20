@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useTitle from "../Hooks/useTitle";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
   const [value, setValue] = useState("Princess Dolls");
+  useTitle("Add A Toy");
   const handleAddToy = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -164,7 +166,7 @@ const AddToy = () => {
 
           <input
             type="submit"
-            className=" btn btn-success btn-block my-8 text-white font-bold"
+            className=" btn btn-block my-8 text-white font-bold"
             value="Add Your Toy"
           />
         </form>

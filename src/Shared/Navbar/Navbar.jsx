@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import logo from "../../../src/assets/logo.jpg";
+
 import "./Navbar.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Tooltip } from "react-tooltip";
@@ -58,18 +58,23 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="flex items-center gap-4">
-            <ActiveLink
+          <div className="flex items-center gap-2">
+            <Link
               to="/"
               style={{ width: "80px", height: "80px", borderRadius: "50%" }}
             >
               <img
                 style={{ width: "80px", height: "80px", borderRadius: "50%" }}
-                src={logo}
+                src="https://i.ibb.co/9bJYFqJ/logo.png"
                 alt="logo"
               />
-            </ActiveLink>
-            <h1 className="text-4xl font-bold text-lime-300">UniToy</h1>
+            </Link>
+            <h1
+              style={{ color: "#ff4abf" }}
+              className="brand-name text-4xl font-bold"
+            >
+              UniToy
+            </h1>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
