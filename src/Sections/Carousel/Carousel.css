@@ -1,0 +1,11 @@
+@media only screen and (max-width: 576px) {
+  .text-container {
+    padding-left: 10px;
+  }
+  .text-container h1 {
+    font-size: 26px;
+  }
+  .text-container p {
+    font-size: 18px;
+  }
+}

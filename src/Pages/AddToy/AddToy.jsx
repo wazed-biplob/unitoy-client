@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import useTitle from "../Hooks/useTitle";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
   const [value, setValue] = useState("Princess Dolls");
+  const navigate = useNavigate();
   useTitle("Add A Toy");
   const handleAddToy = (e) => {
     e.preventDefault();
@@ -42,6 +44,7 @@ const AddToy = () => {
       .then((d) => {
         if (d.insertedId) {
           alert("Toy Has Been Added Successfully.");
+          navigate("/mytoys");
         }
       });
   };
