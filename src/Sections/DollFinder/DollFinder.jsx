@@ -4,7 +4,7 @@ const DollFinder = () => {
   return (
     <>
       <h1 className="bg-gray-300 mt-8 mb-4 pt-2 pb-3 px-4 text-center text-4xl font-bold text-white rounded-xl">
-        Doll Finder
+        Doll Maker
       </h1>
       <div className="flex items-center flex-row-reverse">
         <div className="text-neutral-content ps-10 bg-slate-500">

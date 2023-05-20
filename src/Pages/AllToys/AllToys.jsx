@@ -17,17 +17,29 @@ const AllToys = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const searchString = e.target.search.value;
-    const findQueryURL = `http://localhost:5000/toydata?search=${searchString}`;
-    fetch(findQueryURL, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((r) => r.json())
-      .then((d) => {
-        console.log(d);
-      });
+    if (searchString) {
+      const findQueryURL = `http://localhost:5000/toydata?search=${searchString}`;
+      fetch(findQueryURL, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((r) => r.json())
+        .then((d) => {
+          console.log(d);
+          if (d.length > 0) {
+            setToyData(d);
+          } else {
+            alert(
+              "No Data Found, Write the proper Name of the Doll (Case Sensitive Search)"
+            );
+          }
+        });
+    } else {
+      alert("Write the Dolls Name Properly (Search is Case Sensitive).");
+      return;
+    }
   };
   return (
     <>
@@ -65,24 +77,28 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {toyData.map((toy, i) => (
-              <>
-                <tr key={toy._id}>
-                  <th>{i + 1}</th>
-                  <td>{toy.sellerName}</td>
-                  <td>{toy.toyName}</td>
-                  <td>{toy.toySubCategory}</td>
-                  <td>{toy.price}</td>
-                  <td>{toy.quantity}</td>
-                  <td>
-                    <Link to={`/singletoy/${toy._id}`}>
-                      {" "}
-                      <button className="btn btn-xs">Details</button>
-                    </Link>
-                  </td>
-                </tr>
-              </>
-            ))}
+            {toyData ? (
+              toyData.map((toy, i) => (
+                <>
+                  <tr key={toy._id}>
+                    <th>{i + 1}</th>
+                    <td>{toy.sellerName}</td>
+                    <td>{toy.toyName}</td>
+                    <td>{toy.toySubCategory}</td>
+                    <td>{toy.price}</td>
+                    <td>{toy.quantity}</td>
+                    <td>
+                      <Link to={`/singletoy/${toy._id}`}>
+                        {" "}
+                        <button className="btn btn-xs">Details</button>
+                      </Link>
+                    </td>
+                  </tr>
+                </>
+              ))
+            ) : (
+              <span>No Data Found</span>
+            )}
           </tbody>
           <tfoot>
             <tr>

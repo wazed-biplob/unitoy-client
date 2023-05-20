@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Banner.css";
 const Banner = () => {
   return (
     <>
@@ -17,10 +17,9 @@ const Banner = () => {
         <div
           style={{
             borderRadius: "10px 0px 0px 10px",
-
             left: "0px",
           }}
-          className="lg:w-1/2 md:w-1/2 w-full hero-overlay bg-opacity-80 absolute flex items-center "
+          className="overlay lg:w-1/2 md:w-1/2 w-full hero-overlay bg-opacity-80 absolute flex items-center "
         >
           <div className="text-neutral-content ps-10">
             <div className="max-w-md">
