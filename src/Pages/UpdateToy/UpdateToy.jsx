@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const UpdateToy = () => {
   const toyData = useLoaderData();
   const { user } = useContext(AuthContext);
   const [value, setValue] = useState("Princess Dolls");
+  const navigate = useNavigate();
   const {
     _id,
     toyName,
@@ -55,6 +56,7 @@ const UpdateToy = () => {
       .then((d) => {
         if (d.modifiedCount > 0) {
           alert("Toy Has Been Updated Successfully.");
+          navigate("/mytoys");
         }
       });
   };

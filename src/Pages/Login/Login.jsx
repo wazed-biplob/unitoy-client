@@ -30,6 +30,9 @@ const Login = () => {
       alert(`Password Doesn't Match!`);
       return;
     }
+    if (password.length < 6) {
+      alert(`Password must be at least 6 characters.`);
+    }
     signInUser(email, password)
       .then((r) => {
         console.log(r.user);
@@ -37,6 +40,7 @@ const Login = () => {
       })
       .catch((e) => {
         setError(e.message);
+        alert(e.message);
       });
   };
   return (

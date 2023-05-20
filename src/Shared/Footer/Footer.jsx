@@ -3,6 +3,15 @@ const Footer = () => {
     <>
       <footer className="footer p-10 mt-8 bg-base-200 text-base-content">
         <div>
+          <span className="footer-title">Location</span>
+          <p>
+            123 Main Street
+            <br /> Any town, USA
+          </p>
+          <p>Phone: 777-777-7777</p>
+          <p>Email: info@unitoy.com</p>
+        </div>
+        <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>

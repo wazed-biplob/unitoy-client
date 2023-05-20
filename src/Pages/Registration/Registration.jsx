@@ -22,10 +22,12 @@ const Registration = () => {
     if (password !== conf_password) {
       const errorMsg = `Password Doesn't Match!`;
       setError(errorMsg);
+      alert(errorMsg);
       return;
     } else if (password.length < 6) {
       const errorMsg = `Password Must be at least 8 Characters.`;
       setError(errorMsg);
+      alert(errorMsg);
       return;
     }
 
@@ -38,6 +40,7 @@ const Registration = () => {
         form.reset();
         const message = "User Successfully Created.";
         setSuccess(message);
+        alert(message);
         console.log(r.user);
         logOut()
           .then((r) => console.log(""))
