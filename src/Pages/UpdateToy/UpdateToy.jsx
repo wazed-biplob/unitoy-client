@@ -187,7 +187,7 @@ const UpdateToy = () => {
           <input
             type="submit"
             className=" btn btn-success btn-block my-8 text-white font-bold"
-            value="Add Your Toy"
+            value="Update Your Toy"
           />
         </form>
 

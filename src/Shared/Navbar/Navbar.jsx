@@ -4,6 +4,7 @@ import "./Navbar.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import { Link, useNavigate } from "react-router-dom";
+import ActiveLink from "../../Components/Card/ActiveLink/ActiveLink";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -58,7 +59,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-4">
-            <Link
+            <ActiveLink
               to="/"
               style={{ width: "80px", height: "80px", borderRadius: "50%" }}
             >
@@ -67,32 +68,32 @@ const Navbar = () => {
                 src={logo}
                 alt="logo"
               />
-            </Link>
+            </ActiveLink>
             <h1 className="text-4xl font-bold text-lime-300">UniToy</h1>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu-container menu menu-horizontal px-1">
             <li>
-              <Link to="/">Home</Link>
+              <ActiveLink to="/">Home</ActiveLink>
             </li>
             <li>
-              <Link to="/alltoys">All Toys</Link>
+              <ActiveLink to="/alltoys">All Toys</ActiveLink>
             </li>
 
             {user && (
               <>
                 <li>
-                  <Link to="/mytoys">My toys</Link>
+                  <ActiveLink to="/mytoys">My toys</ActiveLink>
                 </li>
                 <li>
-                  <Link to="/addtoy">Add A Toy</Link>
+                  <ActiveLink to="/addtoy">Add A Toy</ActiveLink>
                 </li>
               </>
             )}
 
             <li>
-              <a>Blog</a>
+              <ActiveLink to="/blog">Blog</ActiveLink>
             </li>
           </ul>
         </div>

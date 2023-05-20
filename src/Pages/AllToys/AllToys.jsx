@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   const [toyData, setToyData] = useState([]);
-  const [limit, setLimit] = useState(2);
+  const [limit, setLimit] = useState(20);
 
   useEffect(() => {
     fetch(`http://localhost:5000/toydata?limit=${limit}`)
@@ -67,7 +67,7 @@ const AllToys = () => {
             {toyData.map((toy, i) => (
               <>
                 <tr key={toy._id}>
-                  <th>{i}</th>
+                  <th>{i + 1}</th>
                   <td>{toy.sellerName}</td>
                   <td>{toy.toyName}</td>
                   <td>{toy.toySubCategory}</td>
