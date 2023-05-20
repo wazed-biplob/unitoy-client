@@ -44,7 +44,7 @@ const UpdateToy = () => {
     };
     console.log(toyInfo);
 
-    fetch(`http://localhost:5000/singletoy/${_id}`, {
+    fetch(`https://unitoy-server.vercel.app/singletoy/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

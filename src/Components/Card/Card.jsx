@@ -6,7 +6,7 @@ const Card = ({ t }) => {
   const { _id, toyName, toyPictureURL, price, rating } = t;
   return (
     <>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-full bg-base-100 shadow-xl">
         <figure>
           <img
             style={{ height: "300px", width: "100%" }}

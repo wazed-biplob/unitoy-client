@@ -8,7 +8,7 @@ const MyToys = () => {
   const [toyData, setToyData] = useState([]);
   const [sort, setSort] = useState(true);
   useTitle("My Toys");
-  const url = `http://localhost:5000/toydata?email=${user?.email}`;
+  const url = `https://unitoy-server.vercel.app/toydata?email=${user?.email}`;
   useEffect(() => {
     sort
       ? toyData.sort((a, b) => a.price - b.price)
@@ -31,7 +31,7 @@ const MyToys = () => {
   const handleDelete = (_id) => {
     const deleteConfirm = confirm("Are you sure you want to remove it?");
     if (deleteConfirm) {
-      fetch(`http://localhost:5000/singletoy/${_id}`, {
+      fetch(`https://unitoy-server.vercel.app/singletoy/${_id}`, {
         method: "DELETE",
       })
         .then((r) => r.json())

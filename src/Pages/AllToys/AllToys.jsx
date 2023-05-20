@@ -7,7 +7,7 @@ const AllToys = () => {
   const [limit, setLimit] = useState(20);
   useTitle("All Toys");
   useEffect(() => {
-    fetch(`http://localhost:5000/toydata?limit=${limit}`)
+    fetch(`https://unitoy-server.vercel.app/toydata?limit=${limit}`)
       .then((r) => r.json())
       .then((d) => {
         setToyData(d);
@@ -18,7 +18,7 @@ const AllToys = () => {
     e.preventDefault();
     const searchString = e.target.search.value;
     if (searchString) {
-      const findQueryURL = `http://localhost:5000/toydata?search=${searchString}`;
+      const findQueryURL = `https://unitoy-server.vercel.app/toydata?search=${searchString}`;
       fetch(findQueryURL, {
         method: "GET",
         headers: {

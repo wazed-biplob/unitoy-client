@@ -42,19 +42,19 @@ const Navbar = () => {
               className=" menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a>All Toys</a>
+                <Link to="/alltoys">All Toys</Link>
               </li>
               <li>
-                <a>My Toys</a>
+                <Link to="/mytoys">My Toys</Link>
               </li>
               <li>
-                <a>Add A Toy</a>
+                <Link to="/addtoy">Add A Toy</Link>
               </li>
               <li>
-                <a>Blog</a>
+                <Link to="/blog">Blog</Link>
               </li>
             </ul>
           </div>

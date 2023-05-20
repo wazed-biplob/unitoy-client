@@ -1,0 +1,6 @@
+@media only screen and (max-width: 576px) {
+  .category {
+    grid-template-columns: 1fr !important;
+    padding: 8px;
+  }
+}

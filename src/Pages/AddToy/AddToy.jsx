@@ -31,7 +31,7 @@ const AddToy = () => {
     };
     console.log(toyInfo);
 
-    fetch("http://localhost:5000/toydata", {
+    fetch("https://unitoy-server.vercel.app/toydata", {
       method: "POST",
       headers: {
         "content-type": "application/json",

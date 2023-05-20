@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./DollFinder.css";
 const DollFinder = () => {
   return (
     <>
@@ -20,6 +20,7 @@ const DollFinder = () => {
         </div>
         <div className="flex justify-center">
           <img
+            className="doll-finder"
             style={{ height: "90vh", width: "70vw" }}
             src="https://i.ibb.co/7KtD9qV/doll-finder.jpg"
             alt="image"

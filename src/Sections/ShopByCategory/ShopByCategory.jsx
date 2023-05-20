@@ -4,6 +4,7 @@ import "react-tabs/style/react-tabs.css";
 import Card from "../../Components/Card/Card";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./ShopByCategory.css";
 
 const ShopByCategory = () => {
   useEffect(() => {
@@ -12,7 +13,7 @@ const ShopByCategory = () => {
   }, []);
   const [toyData, setToyData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/toyData")
+    fetch("https://unitoy-server.vercel.app/toyData")
       .then((r) => r.json())
       .then((d) => {
         console.log(d);
@@ -41,7 +42,7 @@ const ShopByCategory = () => {
           </TabList>
 
           <TabPanel>
-            <div className="grid grid-cols-3 gap-4 justify-items-center">
+            <div className="category grid grid-cols-3 gap-4 justify-items-center">
               {toyData
                 .filter((toy) => toy.toySubCategory === "Princess Dolls")
                 .map((t, i) => (
@@ -50,7 +51,7 @@ const ShopByCategory = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid grid-cols-3 gap-4 justify-items-center">
+            <div className="category grid grid-cols-3 gap-4 justify-items-center">
               {toyData
                 .filter((toy) => toy.toySubCategory === "Adventure Dolls")
                 .map((t, i) => (
@@ -59,7 +60,7 @@ const ShopByCategory = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid grid-cols-3 gap-4 justify-items-center">
+            <div className="category grid grid-cols-3 gap-4 justify-items-center">
               {toyData
                 .filter((toy) => toy.toySubCategory === "Classic Disney Dolls")
                 .map((t, i) => (
