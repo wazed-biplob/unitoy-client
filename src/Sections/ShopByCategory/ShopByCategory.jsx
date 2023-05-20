@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Card from "../../Components/Card/Card";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ShopByCategory = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   const [toyData, setToyData] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/toyData")
@@ -15,7 +21,13 @@ const ShopByCategory = () => {
   }, []);
   return (
     <>
-      <div className="mt-8 flex justify-center">
+      <div
+        data-aos="fade-zoom-in"
+        data-aos-offset="200"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="2"
+        className="mt-8 flex justify-center"
+      >
         <h1 className="bg-lime-300 pt-2 pb-3 px-4 text-center text-4xl font-bold text-white rounded-xl">
           Shop By Category
         </h1>

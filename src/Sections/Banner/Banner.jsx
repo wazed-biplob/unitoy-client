@@ -4,6 +4,10 @@ const Banner = () => {
   return (
     <>
       <div
+        data-aos="fade-zoom-in"
+        data-aos-offset="200"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="2000"
         className="hero min-h-screen relative"
         style={{
           backgroundImage: `url("https://i.ibb.co/NFngn0d/banner-disney.jpg")`,
