@@ -10,7 +10,7 @@ const Carousel = () => {
             src="https://i.ibb.co/hZFh439/d-1.jpg"
             className="w-full rounded-xl"
           />
-          <div className="text-container text-white absolute flex flex-col gap-10 ps-20 justify-center h-[600px] w-full bg-gradient-to-l from-[#e39090] to-[rgba(21, 21, 21, 0.5)]">
+          <div className="text-container text-white absolute flex flex-col gap-10 ps-20 justify-center h-[600px] w-full bg-gradient-to-r from-[#f0a6a6] to-[rgba(21, 21, 21, 0.5)]">
             <h1 className="text-6xl">We make whole set for you!</h1>
             <p className="text-4xl">
               Remember, dreams do come true when you believe in the power of

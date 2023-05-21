@@ -17,7 +17,7 @@ const Card = ({ t }) => {
         <div className="card-body">
           <h2 className="card-title mx-auto">
             {toyName}
-            <div className="badge badge-secondary">Dolls</div>
+            <div className="badge badge-secondary">Disney</div>
           </h2>
           <p>$ {price}</p>
           <div className="">

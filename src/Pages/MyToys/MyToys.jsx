@@ -8,12 +8,12 @@ const MyToys = () => {
   const [toyData, setToyData] = useState([]);
   const [sort, setSort] = useState(true);
   useTitle("My Toys");
-  const url = `https://unitoy-server.vercel.app/toydata?email=${user?.email}`;
-  useEffect(() => {
-    sort
-      ? toyData.sort((a, b) => a.price - b.price)
-      : toyData.sort((a, b) => b.price - a.price);
-  }, [sort, toyData]);
+  const url = `https://unitoy-server.vercel.app/toydata?email=${user?.email}&sort=${sort}`;
+  // useEffect(() => {
+  //   sort
+  //     ? toyData.sort((a, b) => a.price - b.price)
+  //     : toyData.sort((a, b) => b.price - a.price);
+  // }, [sort, toyData]);
   useEffect(() => {
     fetch(url, {
       method: "GET",
@@ -47,7 +47,13 @@ const MyToys = () => {
   };
   return (
     <>
-      <button onClick={() => setSort(!sort)} className="btn my-4">
+      <button
+        onClick={() => {
+          setSort(!sort);
+          console.log(sort);
+        }}
+        className="btn my-4"
+      >
         {sort ? "Sort Ascending" : "Sort Descending"}
       </button>
       <div className="overflow-x-auto">
